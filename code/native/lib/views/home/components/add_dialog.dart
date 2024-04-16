@@ -14,9 +14,7 @@ Future<dynamic> showAddDialog(BuildContext context) {
     transitionDuration: const Duration(milliseconds: 150),
     context: context,
     pageBuilder: (context, anim1, anim2) {
-      return const SafeArea(
-        child: AddDialog(),
-      );
+      return AddDialog();
     },
     transitionBuilder: (context, anim1, anim2, child) {
       return SlideTransition(
@@ -38,10 +36,11 @@ class AddDialog extends StatelessWidget {
     LocalColors colors = Theme.of(context).extension<LocalColors>()!;
 
     return Dialog(
-      insetPadding: const EdgeInsets.all(16),
+      insetPadding: const EdgeInsets.all(0),
+      surfaceTintColor: Colors.blue,
       alignment: Alignment.bottomCenter,
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
         decoration: BoxDecoration(
           color: colors.dialogBackground,
           borderRadius: BorderRadius.circular(16),

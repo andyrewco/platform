@@ -23,13 +23,16 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeMode>(
-        builder: (context, state) {
+        builder: (context, themeMode) {
           return MaterialApp(
             title: "Local",
+            routes: {
+              '/home': (context) => const HomeScreen(),
+            },
             debugShowCheckedModeBanner: false,
             theme: LocalTheme.light,
             darkTheme: LocalTheme.dark,
-            themeMode: state,
+            themeMode: themeMode,
             home: const HomeScreen(),
           );
         },

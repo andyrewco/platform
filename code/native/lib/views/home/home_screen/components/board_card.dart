@@ -2,6 +2,7 @@ import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:local/components/sheets/core_bottom_sheet.dart';
 import 'package:local/theme/color.dart';
 import 'package:local/theme/local.dart';
 import 'package:local/theme/svg.dart';
@@ -61,14 +62,12 @@ class _BoardCardState extends State<BoardCard> {
         });
       },
       onTap: () {
-        HapticFeedback.lightImpact();
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => BoardScreen(board: widget.board),
-        ));
+        openCoreBottomSheet(
+            context, "board_screen", BoardScreen(board: widget.board),);
       },
       child: Container(
         decoration: ShapeDecoration(
-          color: selected ? colors.boardCard!.shade600 : colors.boardCard,
+          color: selected ? colors.boardCard.shade600 : colors.boardCard,
           shape: SmoothRectangleBorder(
             borderRadius: SmoothBorderRadius(
               cornerRadius: 24,

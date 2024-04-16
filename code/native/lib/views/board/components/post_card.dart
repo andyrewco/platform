@@ -1,6 +1,7 @@
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:local/components/sheets/core_bottom_sheet.dart';
 import 'package:local/theme/color.dart';
 import 'package:local/theme/local.dart';
 import 'package:local/views/post/post_screen.dart';
@@ -54,13 +55,13 @@ class _PostCardState extends State<PostCard> {
       },
       onTap: () {
         HapticFeedback.lightImpact();
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) {
-            return PostScreen(
-              post: widget.post,
-            );
-          },
-        ));
+        openCoreBottomSheet(
+          context,
+          "/post",
+          PostScreen(
+            post: widget.post,
+          ),
+        );
       },
       child: Container(
         decoration: ShapeDecoration(
