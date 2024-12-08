@@ -11,32 +11,18 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(
+          padding: EdgeInsets.fromLTRB(
             16.0,
             16.0,
             16.0,
             0.0,
           ),
-          child: Column(
+          child: Row(
             children: [
-              Row(
-                children: [
-                  CustomIconButton(
-                    icon: kIconBack,
-                    size: 30,
-                    click: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  const SearchBar(),
-                ],
-              ),
+              SearchBar(),
             ],
           ),
         ),

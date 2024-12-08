@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local/theme/cubit/theme_cubit.dart';
 import 'package:local/theme/theme.dart';
-import 'package:local/views/home/home_screen/home_screen.dart';
+import 'package:local/views/home/home.dart';
 
 Future<void> main() async {
   runApp(
@@ -27,13 +27,13 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: "Local",
             routes: {
-              '/home': (context) => const HomeScreen(),
+              '/home': (context) => const Home(),
             },
             debugShowCheckedModeBanner: false,
             theme: LocalTheme.light,
             darkTheme: LocalTheme.dark,
             themeMode: themeMode,
-            home: const HomeScreen(),
+            home: const Home(),
           );
         },
       ),

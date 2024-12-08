@@ -6,7 +6,7 @@ import 'package:local/theme/svg.dart';
 import 'package:local/views/home/add_board/add_board.dart';
 import 'package:local/views/home/add_post/add_post.dart';
 
-Future<dynamic> showAddDialog(BuildContext context) {
+Future<dynamic> openAdd(BuildContext context) {
   return showGeneralDialog(
     barrierLabel: "Label",
     barrierDismissible: true,

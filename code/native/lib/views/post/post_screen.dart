@@ -20,6 +20,7 @@ class PostScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: SvgPicture.string(
