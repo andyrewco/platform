@@ -1,21 +1,21 @@
 package main
 
 import (
-	"log"
-
-	"github.com/pocketbase/pocketbase"
-	"github.com/pocketbase/pocketbase/core"
+	"fmt"
+	"local/app"
+	"log/slog"
+	"net/http"
+	"os"
 )
 
 func main() {
-	app := pocketbase.New()
+	port := 8080
 
-	// add a custom route
-	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-		return nil
-	})
+	// setup logger
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
-	if err := app.Start(); err != nil {
-		log.Fatal(err)
-	}
+	r := app.NewRouter()
+
+	logger.Info(fmt.Sprintf("Server running on port: %d", port))
+	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 }
