@@ -7,6 +7,10 @@ import (
 	"github.com/bluesky-social/indigo/xrpc"
 )
 
+type LoginBody struct {
+	Msg string
+}
+
 func Login(w http.ResponseWriter, r *http.Request) {
 	handle := "ancgames.com"
 	host := "https://bsky.social"
@@ -17,5 +21,11 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Auth:   &xrpc.AuthInfo{Handle: handle},
 	}
 
-	w.Write([]byte("login"))
+	// Set the status code to 301 Moved Permanently
+	w.WriteHeader(http.StatusMovedPermanently)
+
+	// Set the Location header to the new URL
+	newURL := "https://google.com/"
+	w.Header().Add("Content-Type", "application/json")
+	w.Header().Set("Location", newURL)
 }
